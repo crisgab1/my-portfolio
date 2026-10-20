@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio</title>
+
+    <style>
+        /* GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #F8F7F4;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #F8F7F4;
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #EAE6DF;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+           color: #263A32;
+           text-decoration: none;
+           padding: 10px 14px;
+           margin: 3px;
+           border-radius: 6px;
+        }
+        
+        nav a:hover {
+            background: #EAE6DF;
+            color: #263A32;
+        }
+
+        /* ALL SECTIONS */
+        section {
+            min-height: 70vh;
+            padding: 60px 20px;
+            text-align: center;
+            scroll-margin-top: 65px;
+        }
+
+        section h2 {
+            font: bold 30px Georgia, serif;
+            color: #263A32;
+         }
+
+         section h3 {
+            font: bold 18px Georgia, serif;
+            color: #40584B;
+         }
+
+         section p {
+            font: 15px Arial, sans-serif;
+            line-height: 1.7;
+         }
+
+
+        h2 {
+            color: #263A32;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #263A32;
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        /* HOME */
+        #home {
+            background: #F8F7F4;
+            min-height: 90vh;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #home h1 {
+            font: bold 38px Georgia, serif;
+            color: #263A32;
+            
+        }
+
+         #home h3 {
+            color: #40584B;
+        }
+
+        #home .intro {
+            font-size: 16px;
+            color: #4B514D;
+         }
+
+
+         .tagline {
+            font-family: Georgia, serif;
+            color: #40584B;
+            font-style: italic;
+            font-size: 17px;
+            margin: 5px 0 15px;
+         
+         }
+
+        /* PROFILE PICTURE */
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #263A32;
+            margin-bottom: 20px;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            background: #263A32;
+            color: #FFFFFF;
+            padding: 10px 18px;
+            margin-top: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #40584B;
+        }
+
+        .project-card {
+            width: 240px;
+            min-height: 390px;
+            text-align: center;
+         }
+
+        .project-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: contain;
+            margin-bottom: 10px;
+         }
+
+        .project-card h3 {
+            color: #263A32;
+            margin-bottom: 10px;
+         }
+
+        .project-card p {
+            line-height: 1.6;
+         }
+
+        /* SECTION COLORS */
+        #about,
+        #projects,
+        #Contact {
+            background: #EAE6DF;
+        }
+
+        #skills,
+        #goals {
+            background: #F8F7F4;
+        }
+
+        #about,
+        #skills,
+        #projects,
+        #goals,
+        #Contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* CONTENT CONTAINERS */
+        .info,
+        .skills,
+        .projects,
+        .goals {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            max-width: 950px;
+            padding: 10px;
+        }
+
+        /* CARDS */
+        .box {
+            background: #FFFFFF;
+            padding: 20px;
+            width: 240px;
+            min-height: 100px;
+            border: 1px solid #D9D6CF;
+            border-radius: 6px;
+            transition: 0.3s;
+            overflow-wrap: anywhere;
+        }
+
+        .box:hover {
+            transform: translateY(-9px);
+        }
+
+        .box p {
+            color: #4B514D;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+        #Contact p {
+            margin: 8px 0;
+        }
+
+        #Contact a {
+            color: #263A32;
+        }
+
+        /* FOOTER */
+        footer {
+            display: block;
+            width: 100%;
+            background: #263A32;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 18px 15px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            nav {
+                padding: 8px 5px;
+            }
+
+            nav a {
+                padding: 7px 9px;
+                margin: 2px;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 45px 15px;
+            }
+
+            #home h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .profile {
+                width: 130px;
+                height: 130px;
+            }
+
+            .info,
+            .skills,
+            .projects,
+            .goals {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        #about > .box {
+           max-width: 750px;
+           width: 90%;
+         }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#goals">Goals</a>
+        <a href="#Contact">Contact</a>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home">
+        
+        <div class="home-content">
+
+        <img src="picturetwo.webp" alt="My Picture" class="profile">
+
+       <h1>Maria. Crisanta G. Cesista</h1>
+
+        <h3>ACT Student</h3>
+
+        <p class="intro">
+            Hello! Welcome to my personal portfolio.
+        </p>
+
+        <p class="intro">
+            I am an ACT student who is eager to learn,
+            develop new skills, and gain knowledge in the
+            field of technology.
+        </p>
+
+        <p class="intro">
+            This portfolio showcases my learning journey,
+            school projects, skills, and personal goals as
+            I continue to grow as a student.
+        </p>
+
+        <p class="tagline">"Progress Over Perfection."</p>
+
+       <a href="#projects" class="btn"><i>Explore My Projects</i></a>
+       
+       </div>
+
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+
+        <div class="box">
+
+        <h2>About Me</h2>
+
+        <p>
+            Hi! I'm Crisanta, an Associate in Computer Technology (ACT) student who enjoys learning about computers and technology.
+            I may still be a beginner in coding, but I'm always willing to learn, explore new ideas, and improve my skills.
+            I enjoy reading books and discovering new things that help me grow as a student. Through this portfolio,
+            I want to share my learning journey, school projects, and progress as I work toward my dream of becoming a skilled IT professional.
+        </p>
+         </div>
+        <div class="info">
+
+            <div class="box">
+                 <h3>School</h3>
+                 <p>Datamex College of Saint Adeline</p>
+             </div>
+
+            <div class="box">
+                <h3>Course</h3>
+                <p>Associate in Computer Technology (ACT)</p>
+            </div>
+
+            <div class="box">
+                <h3>Hobbies</h3>
+                <p>Reading Books</p>
+            </div>
+
+            <div class="box">
+                <h3>Interest</h3>
+                <p>Coding</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2>My Skills</h2>
+
+        <p>Here are some of my skills.</p>
+
+        <div class="skills">
+
+            <div class="box">
+                <h3>HTML</h3>
+            </div>
+
+            <div class="box">
+                <h3>CSS</h3>
+            </div>
+
+            <div class="box">
+                <h3>OOP</h3>
+            </div>
+
+             <div class="box">
+                <h3>ORACLE</h3>
+            </div>
+
+             <div class="box">
+                <h3>C++</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+   <section id="projects">
+
+    <h2>My Projects</h2>
+    <p>Some of my school projects.</p>
+
+    <div class="projects">
+
+        <!-- LOGIN FORM -->
+        <div class="box project-card">
+            <img src="loginnnnn.png" alt="Project 1">
+
+            <h3>Login Form</h3>
+            <p>
+                A simple login interface created using
+                HTML and CSS. It includes username and
+                password fields with a clean design.
+            </p>
+        </div>
+
+        <!-- STUDENT REGISTRATION -->
+        <div class="box project-card">
+            <img src="output html.png" alt="Project 1">
+
+            <h3>Student Registration Form</h3>
+            <p>
+                A student registration form designed
+                to organize student information using
+                HTML and CSS.
+            </p>
+        </div>
+
+        <!-- CRUD SYSTEM -->
+        <div class="box project-card">
+            <img src="liv.png" alt="Project 1">
+
+            <h3>CRUD System</h3>
+            <p>
+                A school project that demonstrates
+                creating, viewing, updating, and
+                deleting records.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+    <!-- GOALS AND ACHIEVEMENTS -->
+    <section id="goals">
+
+        <h2>Goals & Achievements</h2>
+
+        <div class="goals">
+        <div class="box">
+            <h3>Achievements</h3>
+            <p>I learned the basics of HTML and CSS.</p>
+            <p>I completed school activities and projects.</p>
+        </div>
+
+        <div class="box">
+            <h3>Future Goals</h3>
+            <p>I want to improve my coding skills.</p>
+            <p>I want to learn more about web development.</p>
+        </div>
+    </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="Contact">
+
+        <h2>Contact Me</h2>
+
+        <p>
+            Email:
+            <a href="mailto:cesistacrisanta@gmail.com">
+                cesistacrisanta@gmail.com
+            </a>
+        </p>
+
+        <p>
+            Facebook:
+            <a href="https://www.facebook.com/crisanta.gabriel.671859"
+               target="_blank">
+                Visit My Facebook
+            </a>
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>My Personal Portfolio | 2026</p>
+    </footer>
+
+</body>
+</html>
